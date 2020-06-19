@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { Route, Switch } from 'react-router-dom'
+import { Route, Switch, useHistory } from 'react-router-dom'
 import Home from './Components/Home'
 import PizzaForm from './Components/PizzaForm'
 import Order from './Components/Order'
+import Nav from './Components/Nav'
 import * as Yup from 'yup'
 import formSchema from './validation/formSchema'
 import axios from "axios";
+import './App.css'
 
 const initialFormData = {
   name: '',
@@ -32,6 +34,7 @@ const App = () => {
   const [formErrors, setFormErrors] = useState(initialFormErrors)
   const [disabled, setDisabled] = useState(initialDisabled)
   const [orders, setOrders] = useState(initialOrders)
+  const history = useHistory()
 
   const postNewOrder = newOrder => {
     axios.post(POST_URL, newOrder)
@@ -96,6 +99,8 @@ const App = () => {
     }
 
     postNewOrder(newOrder)
+
+    history.push('/order')
   }
 
   useEffect(() => {
@@ -107,6 +112,8 @@ const App = () => {
   return (
     <div className='app'>
       <h1>Lambda Eats</h1>
+
+      <Nav />
       
       <Switch>
         <Route path='/pizza'>
@@ -118,11 +125,14 @@ const App = () => {
             formErrors={formErrors}
             disabled={disabled}
           />
+        </Route>
 
+        <Route path='/order'>
+          {orders.length > 0 ? <h2>Congrats! Your order is on its way!</h2> : ''}
           {
-            orders
+            orders.length > 0
             ? orders.map(order => <Order order={order} key={order.id} />)
-            : ''
+            : <h2>Nothing ordered yet :(</h2>
           }
         </Route>
 

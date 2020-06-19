@@ -13,7 +13,7 @@ export default function PizzaForm(props){
     return (
         <div className='order-form'>
             <h2>Create your pizza</h2>
-            <div className='name-err'>{formErrors.name}</div>
+            <div className='err name-err'>{formErrors.name}</div>
             <form onSubmit={onSubmit}>
                 <label>Name:&nbsp;
                     <input 

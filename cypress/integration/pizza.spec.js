@@ -32,7 +32,7 @@ describe('inputs work correctly', () => {
     it('can submit order', () => {
         cy.get('form button').click()
 
-        cy.get('input[name=name]').should('be.empty')
+        cy.url().should('include', 'order')
 
         cy.contains('Name: Chris')
     })
