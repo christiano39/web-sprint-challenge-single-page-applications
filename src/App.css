@@ -48,3 +48,11 @@ form {
   border: 2px dashed salmon;
   padding: 20px;
 }
+
+.home {
+  background-color: blanchedalmond;
+  border-radius: 20px;
+  border: 2px dashed salmon;
+  padding: 20px;
+  margin: 20px auto;
+}
