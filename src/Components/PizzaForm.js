@@ -30,7 +30,7 @@ export default function PizzaForm(props){
                         value={formData.size}
                         name='size'
                     >
-                        <option value=''>-- Select a size --</option>
+                        {/* <option value=''>-- Select a size --</option> */}
                         <option value='Small'>Small</option>
                         <option value='Medium'>Medium</option>
                         <option value='Large'>Large</option>
@@ -85,7 +85,7 @@ export default function PizzaForm(props){
                     />
                 </label>
                 <br />
-                <button disabled={disabled}>Add to order</button>
+                <button disabled={disabled}>Add to Order</button>
             </form>
         </div>
     )

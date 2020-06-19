@@ -9,7 +9,7 @@ import axios from "axios";
 
 const initialFormData = {
   name: '',
-  size: '',
+  size: 'Medium',
   toppings: {
     peperoni: false,
     olives: false,
