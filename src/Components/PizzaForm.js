@@ -1,12 +1,13 @@
 import React from 'react'
 
 export default function PizzaForm(props){
-    const { formData, onInputChange, onCheckboxChange } = props
+    const { formData, onInputChange, onCheckboxChange, onSubmit, formErrors } = props
     
     return (
         <div className='order-form'>
             <h2>Create your pizza</h2>
-            <form>
+            <div className='name-err'>{formErrors.name}</div>
+            <form onSubmit={onSubmit}>
                 <label>Name:&nbsp;
                     <input 
                         type='text'
