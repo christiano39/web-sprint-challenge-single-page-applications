@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Route, Switch } from 'react-router-dom'
 import Home from './Components/Home'
 import PizzaForm from './Components/PizzaForm'
+import Order from './Components/Order'
 import * as Yup from 'yup'
 import formSchema from './validation/formSchema'
 import axios from "axios";
@@ -117,6 +118,12 @@ const App = () => {
             formErrors={formErrors}
             disabled={disabled}
           />
+
+          {
+            orders
+            ? orders.map(order => <Order order={order} key={order.id} />)
+            : ''
+          }
         </Route>
 
         <Route path='/'>
