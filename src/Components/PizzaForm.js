@@ -1,7 +1,14 @@
 import React from 'react'
 
 export default function PizzaForm(props){
-    const { formData, onInputChange, onCheckboxChange, onSubmit, formErrors } = props
+    const { 
+        formData, 
+        onInputChange, 
+        onCheckboxChange, 
+        onSubmit, 
+        formErrors, 
+        disabled 
+    } = props
     
     return (
         <div className='order-form'>
@@ -78,7 +85,7 @@ export default function PizzaForm(props){
                     />
                 </label>
                 <br />
-                <button>Add to order</button>
+                <button disabled={disabled}>Add to order</button>
             </form>
         </div>
     )
