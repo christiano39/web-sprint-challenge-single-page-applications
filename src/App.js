@@ -46,7 +46,11 @@ const App = () => {
       
       <Switch>
         <Route path='/pizza'>
-          <PizzaForm />
+          <PizzaForm 
+            formData={formData} 
+            onInputChange={onInputChange} 
+            onCheckboxChange={onCheckboxChange} 
+          />
         </Route>
 
         <Route path='/'>
